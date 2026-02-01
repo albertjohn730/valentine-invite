@@ -5,16 +5,19 @@
   <title>Valentine Dinner 💖</title>
 
   <style>
+  
     body {
-      min-height: 100vh;
-      margin: 0;
-      overflow-x: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      font-family: 'Segoe UI', sans-serif;
-    }
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: hidden; /* 🔥 stops shaking */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  font-family: 'Segoe UI', sans-serif;
+}
+
 
     .card {
       background: white;
@@ -80,13 +83,17 @@
     }
 
     /* 💗 Floating hearts */
+   
+
     .heart {
-      position: absolute;
-      bottom: -20px;
-      color: rgba(255, 77, 109, 0.6);
-      font-size: 20px;
-      animation: floatUp 6s linear infinite;
-    }
+  position: fixed;   /* 🔥 detached from document flow */
+  bottom: -20px;
+  color: rgba(255, 77, 109, 0.6);
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+  pointer-events: none; /* hearts don’t interfere with taps */
+}
+
 
     /* 📱 Mobile optimization */
     @media (max-width: 480px) {

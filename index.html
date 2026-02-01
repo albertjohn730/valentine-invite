@@ -17,14 +17,16 @@
     }
 
     .card {
-      background: white;
-      padding: 35px;
-      border-radius: 20px;
-      text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-      width: 320px;
-      z-index: 2;
-    }
+  background: white;
+  padding: 40px 28px;
+  border-radius: 22px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  width: 90%;
+  max-width: 420px;
+  min-height: 420px;
+  z-index: 2;
+}
 
     h1 {
       color: #ff4d6d;
@@ -48,24 +50,29 @@
     }
 
     button {
-      padding: 12px 24px;
-      font-size: 16px;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      position: absolute;
-    }
+  padding: 10px 18px;
+  font-size: 14px;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  position: absolute;
+  transition: transform 0.15s ease;
+}
 
-    #yesBtn {
-      left: 30px;
-      background: #ff4d6d;
-      color: white;
-    }
+#yesBtn {
+  left: 40px;
+  background: #ff4d6d;
+  color: white;
+  font-size: 16px;
+  padding: 12px 26px;
+}
 
-    #noBtn {
-      right: 30px;
-      background: #ddd;
-    }
+#noBtn {
+  right: 40px;
+  background: #eee;
+  font-size: 13px;
+  opacity: 0.85;
+}
 
     /* 💗 Floating hearts */
     .heart {
@@ -92,10 +99,14 @@
 
   <div class="card" id="card">
     <h1>Josie 💖</h1>
-    <p>Dinner with me thiss Valentine? 🍽️✨</p>
+    <p>Dinner with me this Valentine? 🍽️✨</p>
 
     <!-- 🐱 Cute Cat -->
-    <img src="https://i.imgur.com/6XbKJYx.png" alt="Cute Cat">
+    <img
+  src="https://raw.githubusercontent.com/albertjohn730/valentine-invite/main/cat.png"
+  alt="Cute Cat"
+  style="width:150px; margin: 10px auto 20px;"
+/>
 
     <div class="buttons">
       <button id="yesBtn" onclick="yesClicked()">Yes ❤️</button>
@@ -139,6 +150,27 @@
       setTimeout(() => heart.remove(), 7000);
     }, 500);
   </script>
+
+  <script>
+  const noBtn = document.getElementById("noBtn");
+
+  function moveNoButton() {
+    const x = Math.random() * 220 - 110;
+    const y = Math.random() * 120 - 60;
+
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+  }
+
+  // Desktop hover
+  noBtn.addEventListener("mouseover", moveNoButton);
+
+  // Mobile tap / click
+  noBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    moveNoButton();
+  });
+</script>
+
 
 </body>
 </html>

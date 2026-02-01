@@ -36,7 +36,7 @@
     p {
       color: #555;
       margin-bottom: 20px;
-      font-size: 16px;
+      font-size: 20px;
     }
 
     img {
@@ -83,6 +83,47 @@
       animation: floatUp 6s linear infinite;
     }
 
+    /* 📱 Mobile optimization */
+@media (max-width: 480px) {
+  .card {
+    width: 92%;
+    max-width: none;
+    min-height: 480px;
+    padding: 48px 28px;
+    border-radius: 26px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  p {
+    font-size: 17px;
+  }
+
+  img {
+    width: 180px;
+    margin: 16px auto 24px;
+  }
+
+  .buttons {
+    height: 120px;
+  }
+
+  #yesBtn {
+    font-size: 17px;
+    padding: 14px 30px;
+    left: 50%;
+    transform: translateX(-60%);
+  }
+
+  #noBtn {
+    font-size: 14px;
+    right: 50%;
+    transform: translateX(60%);
+  }
+}
+
     @keyframes floatUp {
       0% {
         transform: translateY(0) scale(1);
@@ -98,7 +139,7 @@
 <body>
 
   <div class="card" id="card">
-    <h1>Josie</h1>
+    <h1>Josie✨</h1>
     <p>Dinner with me this Valentine? 🍽️✨</p>
 
     <!-- 🐱 Cute Cat -->

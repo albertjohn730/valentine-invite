@@ -176,25 +176,35 @@
   <script>
     
     let yesScale = 1;
-
+    let noClicks = 0;
+    
     function noClicked() {
-      yesScale += 0.15;
-    
-      const yesBtn = document.getElementById("yesBtn");
-      yesBtn.style.transform = `scale(${yesScale})`;
-    
-      // Optional: make No button fade slightly
-      const noBtn = document.getElementById("noBtn");
-      noBtn.style.opacity = Math.max(0.3, 1 - yesScale / 2);
+        noClicks++;
+      
+        if (yesScale < 1.6) {
+          yesScale += 0.15;
+        }
+      
+        const yesBtn = document.getElementById("yesBtn");
+        yesBtn.style.transform = `scale(${yesScale})`;
+      
+        const noBtn = document.getElementById("noBtn");
+        noBtn.style.opacity = Math.max(0.3, 1 - yesScale / 2);
+      
+        // Optional micro-text after a few No clicks
+        if (noClicks === 3) {
+          noBtn.innerText = "Still shy? 😝";
+        }
     }
 
 
     function yesClicked() {
+      
       document.getElementById("card").innerHTML = `
         <h1>Yayyy!! 🎉💖</h1>
         <p>
           I’m glad you’re up for it 😄<br>
-          Nanti kita set masa bila ko free kayy.
+          Nanti kita set masa bila ko free kayy - lpas CNY pun buli hehe.
         </p>
       `;
 
@@ -208,15 +218,16 @@
     setInterval(() => {
   if (document.querySelectorAll(".heart").length > 15) return;
 
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerHTML = "💖";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
-  document.body.appendChild(heart);
-
-  setTimeout(() => heart.remove(), 7000);
-}, 700);
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+      document.body.appendChild(heart);
+    
+      setTimeout(() => heart.remove(), 7000);
+    }, 700);
+    
   </script>
 
 </body>

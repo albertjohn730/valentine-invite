@@ -9,29 +9,29 @@
   <style>
   
    body {
-  min-height: 100dvh;
-  margin: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 16px 0;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-  font-family: 'Segoe UI', sans-serif;
-}
+      min-height: 100dvh;
+      margin: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px 0;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: 'Segoe UI', sans-serif;
+  }
 
 
     .card {
-  background: white;
-  padding: 32px 22px;
-  border-radius: 22px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-  width: 92%;
-  max-width: 400px;
-  min-height: auto; /* 🔥 remove forced height */
-}
+      background: white;
+      padding: 32px 22px;
+      border-radius: 22px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      width: 92%;
+      max-width: 480px;
+      min-height: auto; /* 🔥 remove forced height */
+    }
 
 
     h1 {
@@ -52,22 +52,21 @@
     }
 
     .buttons {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 24px;
-}
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
 
 
     button {
-  padding: 14px 22px;
-  font-size: 15px;
-  border: none;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
+      padding: 14px 22px;
+      font-size: 15px;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
 
     button:active {
       transform: scale(0.95);
@@ -85,30 +84,28 @@
   opacity: 0.9;
 }
 
-
-    /* 💗 Floating hearts */
-   
-
-    .heart {
-  position: fixed;   /* 🔥 detached from document flow */
-  bottom: -20px;
-  color: rgba(255, 77, 109, 0.6);
-  font-size: 20px;
-  animation: floatUp 6s linear infinite;
-  pointer-events: none; /* hearts don’t interfere with taps */
+  /* 💗 Floating hearts */
+  .heart {
+    position: fixed;   /* 🔥 detached from document flow */
+    bottom: -20px;
+    color: rgba(255, 77, 109, 0.6);
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+    pointer-events: none; /* hearts don’t interfere with taps */
 }
 
 
-    @media (max-width: 480px) {
+  @media (max-width: 480px) {
+      
   body {
-    padding: 24px 0;
+      padding: 24px 0;
   }
 
   .card {
-    width: 70%;
+    width: 80%;
     padding: 36px 20px;
-    border-radius: 26px;
-     margin-top: -40px;
+    border-radius: 20px;
+    margin-top: -40px;
     margin: 24px auto;
   }
 
@@ -129,22 +126,21 @@
 
   .buttons {
   position: relative;
-  height: 100px;
   margin-top: 8px;
-    margin-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 
- #yesBtn {
-  font-size: 17px;
-  padding: 14px 30px;
-  left: 45%;
-}
-
-#noBtn {
-  font-size: 13px;
-  left: 55%;
-}
+   #yesBtn {
+    font-size: 17px;
+    padding: 14px 30px;
+    left: 45%;
+  }
+  
+  #noBtn {
+    font-size: 13px;
+    left: 55%;
+  }
 }
 
 
@@ -158,41 +154,41 @@
         opacity: 0;
       }
     }
+    
   </style>
 </head>
+  
 <body>
 
   <div class="card" id="card">
     <h1>Heyy Josie</h1>
-    <p>Dinner with me this Valentine? 🍽️✨</p>
+    <p style="margin-bottom:5px;">Dinner with me this Valentine? 🍽️✨</p>
     <p style="font-size:14px; opacity:0.7;">No pressure. Just good food & good vibes 😊</p>
-
-
+    
     <!-- 🐱 Cute Cat -->
-    <img src="https://c.tenor.com/lcdpMePlPYMAAAAd/tenor.gif"
-      alt="Cute Cat"
-    />
+    <img src="https://c.tenor.com/lcdpMePlPYMAAAAd/tenor.gif" alt="Cute Cat"/>
 
    <div class="buttons">
-  <button id="yesBtn" onclick="yesClicked()">Yes ❤️</button>
-  <button id="noBtn" onclick="noClicked()">No (I’m shy 😆)</button>
-</div>
+      <button id="yesBtn" onclick="yesClicked()">Yes ❤️</button>
+      <button id="noBtn" onclick="noClicked()">No (I’m shy 😆)</button>
+    </div>
 
   </div>
 
   <script>
-  let yesScale = 1;
+    
+    let yesScale = 1;
 
-function noClicked() {
-  yesScale += 0.15;
-
-  const yesBtn = document.getElementById("yesBtn");
-  yesBtn.style.transform = `scale(${yesScale})`;
-
-  // Optional: make No button fade slightly
-  const noBtn = document.getElementById("noBtn");
-  noBtn.style.opacity = Math.max(0.3, 1 - yesScale / 2);
-}
+    function noClicked() {
+      yesScale += 0.15;
+    
+      const yesBtn = document.getElementById("yesBtn");
+      yesBtn.style.transform = `scale(${yesScale})`;
+    
+      // Optional: make No button fade slightly
+      const noBtn = document.getElementById("noBtn");
+      noBtn.style.opacity = Math.max(0.3, 1 - yesScale / 2);
+    }
 
 
     function yesClicked() {

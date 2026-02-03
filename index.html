@@ -2,34 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
   <title>Valentine Invitation 💖</title>
 
   <style>
   
     body {
-  min-height: 100vh;
-  margin: 0;
-  overflow-x: hidden;
-  overflow-y: hidden; /* 🔥 stops shaking */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-  font-family: 'Segoe UI', sans-serif;
-}
+    min-height: 100dvh;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto; /* 🔥 stops shaking */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    font-family: 'Segoe UI', sans-serif;
+    }
 
 
     .card {
-      background: white;
-      padding: 40px 28px;
-      border-radius: 22px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-      width: 90%;
-      max-width: 420px;
-      min-height: 420px;
-      z-index: 2;
-    }
+  background: white;
+  padding: 32px 22px;
+  border-radius: 22px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  width: 92%;
+  max-width: 420px;
+  min-height: auto; /* 🔥 remove forced height */
+}
+
 
     h1 {
       color: #ff4d6d;
@@ -95,53 +97,50 @@
 }
 
 
-    /* 📱 Mobile optimization */
     @media (max-width: 480px) {
-      body {
-        align-items: flex-start;
-        padding-top: 40px;
-        padding-bottom: 40px;
-      }
+  body {
+    padding: 24px 0;
+  }
 
-      .card {
-        width: 94%;
-        max-width: none;
-        min-height: 560px;
-        padding: 56px 32px;
-        border-radius: 28px;
-      }
+  .card {
+    width: 94%;
+    padding: 36px 20px;
+    border-radius: 26px;
+  }
 
-      h1 {
-        font-size: 28px;
-      }
+  h1 {
+    font-size: 26px;
+    margin-bottom: 6px;
+  }
 
-      p {
-        font-size: 18px;
-        line-height: 1.4;
-      }
+  p {
+    font-size: 17px;
+    line-height: 1.5;
+  }
 
-      img {
-        width: 200px;
-        margin: 20px auto 28px;
-      }
+  img {
+    width: 170px;
+    margin: 22px auto;
+  }
 
-      .buttons {
-        height: 140px;
-      }
+  .buttons {
+    height: 120px;
+  }
 
-      #yesBtn {
-        font-size: 18px;
-        padding: 16px 34px;
-        left: 50%;
-        transform: translateX(-65%);
-      }
+  #yesBtn {
+    font-size: 17px;
+    padding: 14px 30px;
+    left: 50%;
+    transform: translateX(-60%);
+  }
 
-      #noBtn {
-        font-size: 14px;
-        right: 50%;
-        transform: translateX(65%);
-      }
-    }
+  #noBtn {
+    font-size: 13px;
+    right: 50%;
+    transform: translateX(60%);
+  }
+}
+
 
     @keyframes floatUp {
       0% {
@@ -160,6 +159,8 @@
   <div class="card" id="card">
     <h1>Heyy Josie</h1>
     <p>Dinner with me this Valentine? 🍽️✨</p>
+    <p style="font-size:14px; opacity:0.7;">No pressure. Just good food & good vibes 😊</p>
+
 
     <!-- 🐱 Cute Cat -->
     <img src="https://c.tenor.com/lcdpMePlPYMAAAAd/tenor.gif"
@@ -176,10 +177,15 @@
     const noBtn = document.getElementById("noBtn");
 
     function moveNoButton() {
-      const x = Math.random() * 180 - 90;
-      const y = Math.random() * 90 - 45;
-      noBtn.style.transform = `translate(${x}px, ${y}px)`;
-    }
+  const maxX = window.innerWidth < 480 ? 60 : 90;
+  const maxY = window.innerWidth < 480 ? 40 : 45;
+
+  const x = Math.random() * maxX * 2 - maxX;
+  const y = Math.random() * maxY * 2 - maxY;
+
+  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+}
+
 
     noBtn.addEventListener("mouseover", moveNoButton);
     noBtn.addEventListener("click", (e) => {
@@ -204,15 +210,17 @@
 
     // 💗 Generate floating hearts
     setInterval(() => {
-      const heart = document.createElement("div");
-      heart.className = "heart";
-      heart.innerHTML = "💖";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
-      document.body.appendChild(heart);
+  if (document.querySelectorAll(".heart").length > 15) return;
 
-      setTimeout(() => heart.remove(), 7000);
-    }, 500);
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 7000);
+}, 700);
   </script>
 
 </body>

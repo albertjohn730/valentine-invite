@@ -132,18 +132,16 @@
 }
 
 
-  #yesBtn {
-    font-size: 17px;
-    padding: 14px 30px;
-    left: 50%;
-    transform: translateX(-60%);
-  }
+ #yesBtn {
+  font-size: 17px;
+  padding: 14px 30px;
+  left: 45%;
+}
 
-  #noBtn {
-    font-size: 13px;
-    right: 50%;
-    transform: translateX(60%);
-  }
+#noBtn {
+  font-size: 13px;
+  left: 55%;
+}
 }
 
 
@@ -192,11 +190,11 @@
 }
 
 
-    noBtn.addEventListener("mouseover", moveNoButton);
-    noBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      moveNoButton();
-    });
+    noBtn.addEventListener("mouseenter", moveNoButton); // desktop
+noBtn.addEventListener("touchstart", (e) => {
+  e.preventDefault();
+  moveNoButton();
+});
 
     function yesClicked() {
       document.getElementById("card").innerHTML = `
